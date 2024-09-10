@@ -1,0 +1,48 @@
+﻿@page
+@model Library_Management_System.Pages.Books.IndexModel
+@{
+}
+
+<br>
+
+
+<h2>List of Books</h2>
+
+<a class = 'btn btn-primary btn-sm' href='/Books/Create'>New Book</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Genre</th>
+			<th>ISBN</th>
+			<th>Published Date</th>
+			<th>Created At</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.ListBooks)
+		{
+			<tr>
+				<td>@item.id</td>
+				<td>@item.title</td>
+				<td>@item.author</td>
+				<td>@item.genre</td>
+				<td>@item.isbn</td>
+				<td>22/08/2023</td>
+				<td>03/08/2024</td>
+				<td>
+					<a class="btn btn-primary btn-sm" href="/Books/Edit?id=@item.id">Edit</a>
+					<!-- DEBUG: Show the ID value for troubleshooting -->
+					<span style="color:red">ID: @item.id</span> <!-- Temporary debug output -->
+					<a class="btn btn-danger btn-sm" href="/Books/Delete?id=@item.id">Delete</a>
+				</td>
+			</tr>
+		}
+
+	</tbody>
+
+
+</table>
